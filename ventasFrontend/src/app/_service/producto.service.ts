@@ -1,0 +1,36 @@
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Producto } from '../_model/producto';
+import { environment } from 'src/environments/environment';
+import { Subject } from 'rxjs';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class ProductoService {
+  productoCambio = new Subject<Producto[]>();
+  mensajeCambio = new Subject<string>();
+  
+  url: string = `${environment.HOST}/productos`;
+  constructor(private http : HttpClient) { }
+
+  listar(){
+    return this.http.get<Producto[]>(this.url);
+  }
+
+  listarPorId(idProducto: number) {
+    return this.http.get<Producto>(`${this.url}/${idProducto}`);
+  }
+
+  registrar(persona: Producto) {
+    return this.http.post(this.url, Producto);
+  }
+
+  modificar(persona: Producto) {
+    return this.http.put(this.url, Producto);
+  }
+
+  eliminar(idProducto: number) {
+    return this.http.delete(`${this.url}/${idProducto}`);
+  }
+}

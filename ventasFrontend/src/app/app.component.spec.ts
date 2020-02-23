@@ -20,16 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'ventasFrontend'`, () => {
+  it(`should have as title 'mediapp-frontend'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('ventasFrontend');
+    expect(app.title).toEqual('mediapp-frontend');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('ventasFrontend app is running!');
+    expect(compiled.querySelector('.content span').textContent).toContain('mediapp-frontend app is running!');
   });
 });
