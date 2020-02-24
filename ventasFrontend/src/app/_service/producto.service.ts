@@ -22,12 +22,12 @@ export class ProductoService {
     return this.http.get<Producto>(`${this.url}/${idProducto}`);
   }
 
-  registrar(persona: Producto) {
-    return this.http.post(this.url, Producto);
+  registrar(producto: Producto) {
+    return this.http.post(this.url, producto);
   }
 
-  modificar(persona: Producto) {
-    return this.http.put(this.url, Producto);
+  modificar(producto: Producto) {
+    return this.http.put(this.url, producto);
   }
 
   eliminar(idProducto: number) {
